@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Megamenu = ({ data }) => {
   return (
     <>
-      <div className="absolute left-0 right-0  z-10 m-auto h-20 w-full max-w-6xl bg-white p-4 shadow-xl">
+      <div className="absolute left-0 right-0  z-10 m-auto w-full max-w-6xl bg-white p-10 pt-4 shadow-xl">
         <div className="flex gap-40">
           {data.map((item) => (
             <ul>
