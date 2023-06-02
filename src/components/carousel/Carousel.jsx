@@ -9,23 +9,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import useCarousel from "../../hooks/useCarousel";
 
 const Carousel = () => {
-  const [carousel, setCarousel] = useState();
-
-  const fetchCarousel = async () => {
-    try {
-      const response = await client.getEntries({
-        content_type: "homePage",
-        include: 3,
-        select: "fields.mainBanner",
-      });
-      const data = formatCarouselData(response);
-      setCarousel(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { fetchCarousel, carousel } = useCarousel();
 
   useEffect(() => {
     fetchCarousel();

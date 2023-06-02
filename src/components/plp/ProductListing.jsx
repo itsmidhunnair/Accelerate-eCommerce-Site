@@ -61,7 +61,7 @@ const ProductListing = ({ productContainer }) => {
                         </svg>
                       </button>
                       <div className="relative w-full border border-gray-200 px-6 transition-all duration-500 group-hover:bg-[#0000001a]">
-                        <button className="group/button absolute bottom-1 right-2 hidden rounded-md border-2 border-black bg-black p-2 hover:bg-white group-hover:block">
+                        <button className="group/button absolute bottom-1 right-2 hidden rounded-md border-2 border-black bg-black p-2 hover:bg-white group-hover:block max-md:block">
                           <svg id="SvgjsSvg1011" width="25" height="25" version="1.1">
                             <defs id="SvgjsDefs1012"></defs>
                             <g id="SvgjsG1013">
@@ -84,7 +84,7 @@ const ProductListing = ({ productContainer }) => {
                         </div>
                       </div>
                       <div className="mt-2 flex flex-col justify-center max-sm:text-center">
-                        <div className="h-[40px] overflow-hidden text-ellipsis text-sm">
+                        <div className="overflow-hidden text-ellipsis text-sm md:h-[40px]">
                           {product.name}
                         </div>
                         <div className="mt-2 text-sm font-semibold">
