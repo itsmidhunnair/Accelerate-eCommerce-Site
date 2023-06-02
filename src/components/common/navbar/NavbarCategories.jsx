@@ -9,7 +9,7 @@ const NavbarCategories = ({ category }) => {
   return (
     <>
     <div onMouseOver={()=>{setMegamenu(true)}} onMouseOut={()=>{setMegamenu(false)}}>
-      <li className="text-white font-bold flex align-middle py-3 border-b-4 border-transparent hover:border-b-red-600" >
+      <li className="text-white text-sm font-bold flex align-middle justify-center py-3 border-b-4 border-transparent hover:border-b-red-600" >
         <Link to={category.link}>{category.category}</Link>
         {category.subCategory &&<svg
           className="ms-3 mt-1.5"

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { client } from "../../config/contentFull";
 import { formatCategoryData } from "../../utils/formatContentApi";
 import { Link } from "react-router-dom";
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Categories = () => {
   const [categories, setCategories] = useState();
@@ -14,7 +16,7 @@ const Categories = () => {
         order: "sys.createdAt",
         // select: "fields.mediumBanner",
       });
-      console.log(response.items);
+
       const data = formatCategoryData(response);
       setCategories(data);
     } catch (error) {
@@ -28,19 +30,47 @@ const Categories = () => {
 
   return (
     <>
-      <h3 className="font-bold text-2xl text-neutral-600 text-center py-9">
+    <div className="mx-auto max-w-7xl px-3">
+      <h3 className="py-9 text-center text-2xl font-bold text-neutral-600">
         Shop By Categories
       </h3>
-      <div className="flex flex-wrap justify-center max-w-7xl mx-auto">
-        {categories?.map((category) => (
-          <div className="w-1/6 min-w-[200px] px-3 text-gray-700 hover:text-red-500">
-            <Link to={`${category.href}`}>
-              <img src={category.image} alt={category.alt} />
-              <div className="font-bold uppercase text-center">{category?.category}</div>
-            </Link>
-          </div>
-        ))}
+      <div className="flex flex-wrap justify-center">
+        <Swiper
+          slidesPerView={2}
+          spaceBetween={30}
+          navigation={true}
+          modules={[Navigation]}
+          breakpoints={{
+            540: {
+              slidesPerView: 2,
+            },
+            767: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 5,
+            },
+            1244: {
+              slidesPerView: 6,
+            },
+          }}>
+          {categories?.map((category) => (
+            <SwiperSlide>
+              <div
+                key={category.href}
+                className=" text-gray-700 hover:text-red-500">
+                <Link to={`${category.href}`}>
+                  <img src={category.image} alt={category.alt} />
+                  <div className="text-center font-bold uppercase">
+                    {category?.category}
+                  </div>
+                </Link>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
+    </div>
     </>
   );
 };

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { client } from '../../../config/contentFull';
 import { formatLinkData } from '../../../utils/formatContentApi';
 import NavbarCategories from './NavbarCategories';
@@ -24,13 +23,11 @@ const Navbar = () => {
     fetchNavbar();
   }, []);
 
-  console.log(navbar);
-
   return (
     <>
       <div className="w-full bg-black">
         <div className="container max-w-7xl mx-auto">
-          <ul className="flex justify-center gap-12">
+          <ul className="flex flex-row justify-center gap-12 max max-sm:block max-sm:w-full ">
             {navbar?.map((arr) => (
               <NavbarCategories category={arr} key={arr.category}/>
             ))}

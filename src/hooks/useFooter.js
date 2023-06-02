@@ -12,7 +12,7 @@ const useFooter = () => {
         include: 3,
       });
       const data = formatFooterData(response);
-      //   setFooter(data);
+        setFooter(data);
     } catch (error) {
       console.log(error);
     }

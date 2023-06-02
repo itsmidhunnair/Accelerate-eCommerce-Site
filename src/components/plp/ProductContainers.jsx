@@ -27,9 +27,14 @@ const ProductContainers = () => {
 
   return (
     <>
-      {productsList?.map((productContainer) => (
-        <ProductListing productContainer={productContainer} />
-      ))}
+      <div className="mx-auto max-w-7xl px-3">
+        {productsList?.map((productContainer) => (
+          <ProductListing
+            productContainer={productContainer}
+            key={productContainer.title}
+          />
+        ))}
+      </div>
     </>
   );
 };

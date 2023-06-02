@@ -28,7 +28,7 @@ const SmallBanner = () => {
     <>
       <div className="mx-auto mt-8 flex max-w-7xl flex-wrap justify-center px-1">
         {banner?.map((item) => (
-          <div className="w-1/2 min-w-[300px]">
+          <div className="w-1/2 min-w-[300px] max-sm:w-full" key={item.redirectUrl}>
             <Link to={`/c/${item.redirectUrl}`}>
               <img src={item.image} alt={item.alt} className="p-2" />
             </Link>

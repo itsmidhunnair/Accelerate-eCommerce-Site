@@ -1,5 +1,3 @@
-import { format } from "prettier";
-
 const formatLinkData = ({ items }) => {
   const formatedData = items[0]?.fields.categories.map((arr) => ({
     category: arr.fields.category,
@@ -11,7 +9,6 @@ const formatLinkData = ({ items }) => {
       })),
     })),
   }));
-  console.log("=============>", formatedData);
   return formatedData;
 };
 
@@ -33,7 +30,6 @@ const formatMediumBannerData = ({ items }) => {
       img: img.fields.image.fields.file.url,
     })),
   };
-  console.log(formatedData);
   return formatedData;
 };
 
@@ -76,16 +72,26 @@ const formatProductListData = ({ items }) => {
 const formatFooterData = ({ items }) => {
   let formatedData = { footerTop: items[0].fields.footerTop.fields };
   formatedData.footerMiddle = {
-    columns: { brandingPart: items[0].fields.footerMiddle.fields.brandingPart.fields },
+    brandingPart: items[0].fields.footerMiddle.fields.brandingPart.fields,
+    columns: items[0].fields.footerMiddle.fields.columns.map((column) => ({
+      head: column.fields.head,
+      list: column.fields.columns.map((list) => list.fields),
+    })),
+    socialMedia: items[0].fields.footerMiddle.fields.socialMedia.map(
+      (item) => item.fields
+    ),
+    downloadApp: items[0].fields.footerMiddle.fields.downloadApp.map(
+      (item) => item.fields
+    ),
   };
 
-  formatedData.footerMiddle.columns.brandingPart = {
-    ...formatedData.footerMiddle.columns.brandingPart,
-    logo: formatedData.footerMiddle.columns.brandingPart.logo.fields.file.url,
+  formatedData.footerMiddle.brandingPart = {
+    ...formatedData.footerMiddle.brandingPart,
+    logo: formatedData.footerMiddle.brandingPart.logo.fields.file.url,
   };
 
-  formatedData.footerBottom = { footerTop: items[0].fields.footerBottom.fields };
-  // console.info(formatedData);
+  formatedData.footerBottom = items[0].fields.footerBottom.fields;
+  // console.info("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", formatedData);
   return formatedData;
 };
 

@@ -1,24 +1,25 @@
-import React, { useEffect } from 'react'
-import useFooter from '../../hooks/useFooter'
-import BottomFooter from './BottomFooter'
-import MiddleFooter from './MiddleFooter'
-import TopFooter from './TopFooter'
+import React, { useEffect } from "react";
+import useFooter from "../../hooks/useFooter";
+import BottomFooter from "./BottomFooter";
+import MiddleFooter from "./MiddleFooter";
+import TopFooter from "./TopFooter";
 
 const Index = () => {
+  const { fetchFooter, footer } = useFooter();
 
-  const {fetchFooter} = useFooter()
+  useEffect(() => {
+    fetchFooter();
+  }, []);
 
-  useEffect(()=>{
-    fetchFooter()
-  },[])
-  
   return (
     <>
-        <TopFooter/>
-        <MiddleFooter/>
-        <BottomFooter/>
+      <div className="mt-8">
+        <TopFooter content={footer?.footerTop} />
+        <MiddleFooter content={footer?.footerMiddle} />
+        <BottomFooter content={footer?.footerBottom} />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
