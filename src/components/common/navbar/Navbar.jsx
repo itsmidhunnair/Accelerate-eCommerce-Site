@@ -13,28 +13,61 @@ const Navbar = () => {
     <>
       <div className="w-full bg-black">
         <div className="container mx-auto max-w-7xl">
-          <div className={`hidden justify-between max-md:flex`}>
-            <button className="pl-4" onClick={()=>{setShowNav(!showNav)}}>
-              <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 18H10"
-                  stroke="#fff"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M4 12L16 12"
-                  stroke="#fff"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M4 6L20 6"
-                  stroke="#fff"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
+          <div className={`flex justify-between md:justify-center border-b-2 border-b-neutral-500`}>
+            <button
+              className="hidden pl-4 max-md:block"
+              onClick={() => {
+                setShowNav(!showNav);
+              }}>
+              {showNav ? (
+                <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 18H10"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4 12L16 12"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4 6L20 6"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  viewBox="0 0 24 24"
+                  height="40px"
+                  width="40x"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="#000000">
+                  <g id="SVGRepo_bgCarrier" stroke-width="1"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <g id="Menu / Close_SM">
+                      {" "}
+                      <path
+                        id="Vector"
+                        d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>{" "}
+                    </g>{" "}
+                  </g>
+                </svg>
+              )}
             </button>
             <div className="p-4">
               <img
@@ -43,11 +76,14 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <ul className={`max flex flex-row items-center justify-center gap-12 max-sm:block transition-all duration-500 overflow-x-hidden max-sm:${showNav?'w-full':'w-0'}`}>
-            {navbar?.map((arr) => (
-              <NavbarCategories category={arr} key={arr.category} />
-            ))}
-          </ul>
+          <div className={`overflow-y-hidden max-md:${showNav ? "h-full" : "h-0"}`}>
+            <ul
+              className={`flex flex-row items-center justify-center gap-12 overflow-x-hidden transition-all duration-500 max-sm:block`}>
+              {navbar?.map((arr) => (
+                <NavbarCategories category={arr} key={arr.category} />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </>

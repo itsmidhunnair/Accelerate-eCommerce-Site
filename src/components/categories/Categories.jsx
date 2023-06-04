@@ -39,7 +39,7 @@ const Categories = () => {
             }}>
             {categories?.map((category) => (
               <SwiperSlide>
-                <div key={category.href} className=" text-gray-700 hover:text-red-500">
+                <div key={category.href} className=" text-gray-700 hover:text-red-500 flex justify-center">
                   <Link to={`${category.href}`}>
                     <img src={category.image} alt={category.alt} />
                     <div className="text-center font-bold uppercase">
