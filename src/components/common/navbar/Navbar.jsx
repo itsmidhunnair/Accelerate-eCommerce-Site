@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <div className="w-full bg-black">
         <div className="container mx-auto max-w-7xl">
-          <div className={`flex justify-between md:justify-center border-b-2 border-b-neutral-500`}>
+          <div className={`flex justify-between md:justify-center`}>
             <button
               className="hidden pl-4 max-md:block"
               onClick={() => {
