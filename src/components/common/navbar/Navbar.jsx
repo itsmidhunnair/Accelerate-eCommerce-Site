@@ -76,7 +76,7 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <div className={`overflow-y-hidden max-md:${showNav ? "h-full" : "h-0"}`}>
+          <div className={`max-md:${showNav ? 'block' : 'hidden'}`}>
             <ul
               className={`flex flex-row items-center justify-center gap-12 overflow-x-hidden transition-all duration-500 max-sm:block`}>
               {navbar?.map((arr) => (
