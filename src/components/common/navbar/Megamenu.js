@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Megamenu = ({ data }) => {
   return (
     <>
-      <div className="absolute left-0 right-0  z-10 m-auto w-full max-w-6xl bg-white p-10 pt-4 shadow-xl">
+      <div className="max-sm:relative absolute left-0 right-0  z-10 m-auto w-full max-w-6xl bg-white p-10 pt-4 shadow-xl">
         <div className="flex gap-x-40 gap-y-6 max-sm:flex-col">
           {data.map((item) => (
             <ul key={item.subCategory}>

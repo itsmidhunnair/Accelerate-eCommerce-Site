@@ -20,27 +20,6 @@ const Navbar = () => {
                 setShowNav(!showNav);
               }}>
               {showNav ? (
-                <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M4 18H10"
-                    stroke="#fff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M4 12L16 12"
-                    stroke="#fff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M4 6L20 6"
-                    stroke="#fff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              ) : (
                 <svg
                   viewBox="0 0 24 24"
                   height="40px"
@@ -66,6 +45,27 @@ const Navbar = () => {
                         stroke-linejoin="round"></path>{" "}
                     </g>{" "}
                   </g>
+                </svg>
+              ) : (
+                <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 18H10"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4 12L16 12"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M4 6L20 6"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
                 </svg>
               )}
             </button>
